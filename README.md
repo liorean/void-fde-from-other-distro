@@ -1,5 +1,5 @@
 # Installing Void-linux
-This is my try to install Void-linux with full disk encryption, specifically the x86_64 version with glibc as system clib, on a Secure Boot system, from a Manjaro KDE live usb because even without a PK key (it does not have a separate "disable Secure Boot" option) my motherboard firmware does not seem to allow booting from the Void live usb. Manjaro is an Arch based distro, and as such provide the very useful AUR package for the Void-linux package handler, XBPS.
+This is my try to install Void-linux with full disk encryption, specifically the x86_64 version with glibc as system clib, on a Secure Boot system, from a Manjaro KDE live usb because even without a PK key my motherboard firmware (it does not have a separate "disable Secure Boot" option) does not seem to allow booting from the Void live usb. Manjaro is an Arch based distro, and as such provide the very useful AUR package for the Void-linux package handler, XBPS.
 ## Preparations
 Before we can even try to get void installed, we need to do a few preparations of the disks and on the host distro.
 ### Partitioning
@@ -34,9 +34,9 @@ The bios_grub partition isn't really necessary, but it is 2 MiB and I can't be b
 The intention is for the final disk layout to look like this:
 ```
 /	nvme0n1p5	LUKS2-Argon2i
-├─home	nvme1n1p1	LUKS2-Argon2i
-└─boot	nvme0n1p3	LUKS2-PBKDF2
-  └─efi	nvme0n1p1	
+├─home/	nvme1n1p1	LUKS2-Argon2i
+└─boot/	nvme0n1p3	LUKS2-PBKDF2
+  └─efi/	nvme0n1p1	
 swap	nvme0n1p4	LUKS2-Argon2i
 ```
 ### Manjaro 
