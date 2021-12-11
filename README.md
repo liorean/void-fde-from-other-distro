@@ -56,3 +56,39 @@ And then we need to install `xbps-git` from AUR. For this I used Pamac ("Add/Rem
 
 
 
+
+https://developer.atmosphereiot.com/documents/hardwareselection/espduino32.html#project-specifics
+https://www.gnu.org/software/grub/manual/grub/html_node/Using-digital-signatures.html
+https://www.man7.org/linux/man-pages/man8/cryptsetup.8.html
+
+https://unix.stackexchange.com/questions/655214/configure-grub2-to-use-a-keyfile-to-unlock-luks-encrypted-and-boot
+https://ruderich.org/simon/notes/secure-boot-with-grub-and-signed-linux-and-initrd
+
+https://medium.com/100-days-of-linux/chroot-a-linux-wonder-fc36ed08087e
+https://rlbcontractor.com/fixing-a-broken-linux-system-with-chroot
+https://archived.forum.manjaro.org/t/how-to-chroot-into-an-encrypted-root-partition/10760
+https://www.preney.ca/paul/archives/389
+https://wiki.archlinux.org/title/GRUB
+https://wiki.archlinux.org/title/Dm-crypt
+https://wiki.archlinux.org/title/Dm-crypt/Swap_encryption
+https://wiki.archlinux.org/title/Dm-crypt/Device_encryption
+https://wiki.archlinux.org/title/Dm-crypt/Encrypting_a_non-root_file_system
+https://wiki.archlinux.org/title/Dm-crypt/Encrypting_an_entire_system
+https://wiki.archlinux.org/title/Data-at-rest_encryption
+https://wiki.gentoo.org/wiki/Dm-crypt_full_disk_encryption
+https://wiki.gentoo.org/wiki/Full_Disk_Encryption_From_Scratch_Simplified#Automatic_mount_of_encrypted_disk_at_boot
+https://wiki.gentoo.org/wiki/User:Sakaki/Sakaki%27s_EFI_Install_Guide/Preparing_the_LUKS-LVM_Filesystem_and_Boot_USB_Key
+https://gitlab.com/cryptsetup/cryptsetup/-/wikis/FrequentlyAskedQuestions
+https://askubuntu.com/questions/1032546/should-i-use-luks1-or-luks2-for-partition-encryption
+https://cryptsetup-team.pages.debian.net/cryptsetup/encrypted-boot.html
+https://www.johndstech.com/booting/how-to-grub2-for-uefi-and-luks-encrypted-volumes-for-arch-linux-and-windows-10/
+https://wiki.voidlinux.org/Full_Disk_Encryption_w/Encrypted_Boot
+https://wiki.voidlinux.org/Manual_Install_with_encrypted_boot
+https://wiki.voidlinux.org/Install_alongside_Arch_Linux
+https://docs.voidlinux.org/xbps/troubleshooting/static.html
+https://docs.voidlinux.org/installation/guides/chroot.html
+https://docs.voidlinux.org/installation/guides/fde.html
+https://docs.voidlinux.org/xbps/advanced-usage.html
+https://aur.archlinux.org/packages/xbps/
+https://wiki.archlinux.org/title/Pacman
+https://linuxhint.com/create-ramdisk-linux/
