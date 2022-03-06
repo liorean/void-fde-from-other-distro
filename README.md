@@ -55,6 +55,14 @@ Installing `extra/efitools`:
 And then we need to install `xbps-git` from AUR. For this I used Pamac ("Add/Remove Software") with Preferences:Third Party:AUR:Enable AUR, and then 🔍:AUR:xbps-git.
 
 
+For creating encrypted keyfiles, we need GNU's PGP implementation:
+Installing `gpg`:
+```bash
+# pacman -S gnupg
+```
+
+
+
 
 
 https://developer.atmosphereiot.com/documents/hardwareselection/espduino32.html#project-specifics
