@@ -65,6 +65,21 @@ Installing `gpg`:
 
 
 
+
+```bash
+# mkdir -p /distro/{home,boot,root,}
+# cryptsetup luksFormat -y -v --type luks2 /dev/nvme1n1p1
+# cryptsetup luksOpen /dev/nvme1n1p1 home
+
+# mkfs.ext4 /dev/mapper/home  
+# mkdir /distro/home
+# ls -Rla distro
+```
+
+
+
+
+
 https://developer.atmosphereiot.com/documents/hardwareselection/espduino32.html#project-specifics
 https://www.gnu.org/software/grub/manual/grub/html_node/Using-digital-signatures.html
 https://www.man7.org/linux/man-pages/man8/cryptsetup.8.html
