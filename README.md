@@ -61,7 +61,14 @@ Installing `gpg`:
 # pacman -S gnupg
 ```
 
-
+```bash
+# mkdir -p /distro/{home,boot,root,}
+# cryptsetup luksFormat -y -v --type luks2 /dev/nvme1n1p1
+# cryptsetup luksOpen /dev/nvme1n1p1 home
+# mkfs.ext4 /dev/mapper/home  
+# mkdir /distro/home
+# ls -Rla distro
+```
 
 
 
