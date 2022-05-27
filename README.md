@@ -66,19 +66,84 @@ Installing `gpg`:
 
 
 
-```bash
-# mkdir -p /distro/{home,boot,root,}
-# cryptsetup luksFormat -y -v --type luks2 /dev/nvme1n1p1
-# cryptsetup luksOpen /dev/nvme1n1p1 home
+Home partition:
+```
+   /mnt/grub    master  lsblk -I 259 -o NAME,KNAME,LABEL,PARTLABEL,FSTYPE,PARTTYPENAME,PARTFLAGS                                                                                                                                ✔ 
+NAME        KNAME     LABEL PARTLABEL  FSTYPE PARTTYPENAME     PARTFLAGS
+nvme1n1     nvme1n1                                            
+`-nvme1n1p1 nvme1n1p1 HOME  home       ext4   Linux filesystem 
+nvme0n1     nvme0n1                                            
+|-nvme0n1p1 nvme0n1p1       grub              BIOS boot        0x1
+|-nvme0n1p2 nvme0n1p2 ESP   efi-system vfat   EFI System       
+|-nvme0n1p3 nvme0n1p3 BOOT  boot       ext4   Linux filesystem 
+|-nvme0n1p4 nvme0n1p4 SWAP  swap       swap   Linux swap       0x8000000000000000
+`-nvme0n1p5 nvme0n1p5 ROOT  root       ext4   Linux filesystem 
+    /mnt/grub    master  cryptsetup luksFormat -y -v --type luks2 /dev/nvme1n1p1
+Device /dev/nvme1n1p1 does not exist or access denied.
+Command failed with code -4 (wrong device or file specified).
+    /mnt/grub    master ?6  sudo cryptsetup luksFormat -y -v --type luks2 /dev/nvme1n1p1
+WARNING: Device /dev/nvme1n1p1 already contains a 'ext4' superblock signature.
 
-# mkfs.ext4 /dev/mapper/home  
-# mkdir /distro/home
-# ls -Rla distro
+WARNING!
+========
+This will overwrite data on /dev/nvme1n1p1 irrevocably.
+
+Are you sure? (Type 'yes' in capital letters): YES
+Enter passphrase for /dev/nvme1n1p1: 
+Verify passphrase: 
+Passphrases do not match.
+Command failed with code -2 (no permission or bad passphrase).
+    /mnt/grub    master ?6  sudo cryptsetup luksFormat -y -v --type luks2 /dev/nvme1n1p1
+WARNING: Device /dev/nvme1n1p1 already contains a 'ext4' superblock signature.
+
+WARNING!
+========
+This will overwrite data on /dev/nvme1n1p1 irrevocably.
+
+Are you sure? (Type 'yes' in capital letters): YES
+Enter passphrase for /dev/nvme1n1p1: 
+Verify passphrase: 
+Existing 'ext4' superblock signature on device /dev/nvme1n1p1 will be wiped.
+Key slot 0 created.
+Command successful.
+    /mnt/grub    master ?6  lsblk -I 259 -o NAME,KNAME,LABEL,PARTLABEL,FSTYPE,PARTTYPENAME,PARTFLAGS
+NAME KNAME LABEL PARTLABEL FSTYPE PARTTYPENAME PARTFLAGS
+nvme1n1
+     nvme1n1
+                                               
+`-nvme1n1p1
+     nvme1n1p1
+                 home      crypto Linux filesystem
+                                               
+nvme0n1
+     nvme0n1
+                                               
+|-nvme0n1p1
+|    nvme0n1p1
+|                grub             BIOS boot    0x1
+|-nvme0n1p2
+|    nvme0n1p2
+|          ESP   efi-system
+|                          vfat   EFI System   
+|-nvme0n1p3
+|    nvme0n1p3
+|          BOOT  boot      ext4   Linux filesystem
+|                                              
+|-nvme0n1p4
+|    nvme0n1p4
+|          SWAP  swap      swap   Linux swap   0x8000000000000000
+`-nvme0n1p5
+     nvme0n1p5
+           ROOT  root      ext4   Linux filesystem
 ```
 
 
 
 
+
+
+
+https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/
 
 https://developer.atmosphereiot.com/documents/hardwareselection/espduino32.html#project-specifics
 https://www.gnu.org/software/grub/manual/grub/html_node/Using-digital-signatures.html
