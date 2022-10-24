@@ -196,6 +196,22 @@ Command successful.
     ~                                                                                                                                                                           ✔  45s  
 ```
 
+```
+    ~  lsblk -I 259 -o NAME,KNAME,LABEL,PARTLABEL,FSTYPE,PARTTYPENAME,PARTFLAGS                                                                                                 ✔  45s  
+NAME        KNAME     LABEL PARTLABEL  FSTYPE      PARTTYPENAME     PARTFLAGS
+nvme1n1     nvme1n1                                                 
+└─nvme1n1p1 nvme1n1p1       home       crypto_LUKS Linux filesystem 
+nvme0n1     nvme0n1                                                 
+├─nvme0n1p1 nvme0n1p1       grub                   BIOS boot        0x1
+├─nvme0n1p2 nvme0n1p2 ESP   efi-system vfat        EFI System       
+├─nvme0n1p3 nvme0n1p3       boot       crypto_LUKS Linux filesystem 
+├─nvme0n1p4 nvme0n1p4       swap       crypto_LUKS Linux swap       0x8000000000000000
+└─nvme0n1p5 nvme0n1p5       root       crypto_LUKS Linux filesystem 
+    ~                                                                                                                                                                                   ✔
+```
+
+
+
 https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/
 
 https://developer.atmosphereiot.com/documents/hardwareselection/espduino32.html#project-specifics
