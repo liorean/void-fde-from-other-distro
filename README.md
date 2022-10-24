@@ -144,11 +144,57 @@ nvme0n1
            ROOT  root      ext4   Linux filesystem
 ```
 
+Root partition
+```
+    ~  sudo cryptsetup luksFormat -y -v --type luks2 /dev/nvme0n1p5                                                                                                           1 ✘  23s  
+WARNING: Device /dev/nvme0n1p5 already contains a 'ext4' superblock signature.
 
+WARNING!
+========
+This will overwrite data on /dev/nvme0n1p5 irrevocably.
 
+Are you sure? (Type 'yes' in capital letters): YES
+Enter passphrase for /dev/nvme0n1p5: 
+Verify passphrase: 
+Existing 'ext4' superblock signature on device /dev/nvme0n1p5 will be wiped.
+Key slot 0 created.
+Command successful.
+    ~                                                                                                                                                                           ✔  59s  
+```
+Swap partition
+```
+sudo cryptsetup luksFormat -y -v --type luks2 /dev/nvme0n1p4                                                                                                           2 ✘  40s  
+WARNING: Device /dev/nvme0n1p4 already contains a 'swap' superblock signature.
 
+WARNING!
+========
+This will overwrite data on /dev/nvme0n1p4 irrevocably.
 
+Are you sure? (Type 'yes' in capital letters): YES
+Enter passphrase for /dev/nvme0n1p4: 
+Verify passphrase: 
+Existing 'swap' superblock signature on device /dev/nvme0n1p4 will be wiped.
+Key slot 0 created.
+Command successful.
+    ~                                                                                                                                                                           ✔  48s  
+```
+Boot partition
+```
+    ~  sudo cryptsetup luksFormat -y -v --type luks2 --pbkdf pbkdf2 /dev/nvme0n1p3                                                                                                  INT ✘ 
+WARNING: Device /dev/nvme0n1p3 already contains a 'ext4' superblock signature.
 
+WARNING!
+========
+This will overwrite data on /dev/nvme0n1p3 irrevocably.
+
+Are you sure? (Type 'yes' in capital letters): YES
+Enter passphrase for /dev/nvme0n1p3: 
+Verify passphrase: 
+Existing 'ext4' superblock signature on device /dev/nvme0n1p3 will be wiped.
+Key slot 0 created.
+Command successful.
+    ~                                                                                                                                                                           ✔  45s  
+```
 
 https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/
 
