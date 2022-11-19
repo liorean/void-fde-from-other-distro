@@ -210,6 +210,18 @@ nvme0n1     nvme0n1
     ~                                                                                                                                                                                   ✔
 ```
 
+```
+sudo cryptsetup luksOpen /dev/nvme1n1p1 voidhome                 ✔ 
+Enter passphrase for /dev/nvme1n1p1: 
+    ~  sudo cryptsetup luksOpen /dev/nvme0n1p3 voidboot         ✔  43s  
+Enter passphrase for /dev/nvme0n1p3: 
+    ~  sudo cryptsetup luksOpen /dev/nvme0n1p4 voidswap         ✔  27s  
+Enter passphrase for /dev/nvme0n1p4: 
+    ~  sudo cryptsetup luksOpen /dev/nvme0n1p5 voidroot         ✔  22s  
+Enter passphrase for /dev/nvme0n1p5: 
+    ~                                                           ✔  19s  
+```
+
 
 
 https://www.cyberciti.biz/security/howto-linux-hard-disk-encryption-with-luks-cryptsetup-command/
