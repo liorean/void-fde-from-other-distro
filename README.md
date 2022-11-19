@@ -219,7 +219,51 @@ Enter passphrase for /dev/nvme0n1p3:
 Enter passphrase for /dev/nvme0n1p4: 
     ~  sudo cryptsetup luksOpen /dev/nvme0n1p5 voidroot         ✔  22s  
 Enter passphrase for /dev/nvme0n1p5: 
-    ~                                                           ✔  19s  
+    ~  sudo mkdir -p /void/{home,boot,root,}                    ✔  19s  
+    ~  sudo mkfs.ext4 -L root /dev/mapper/voidroot                   ✔ 
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 96631040 4k blocks and 24158208 inodes
+Filesystem UUID: 7761fc3c-8c21-4795-9144-ed8c965a34c6
+Superblock backups stored on blocks: 
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
+        4096000, 7962624, 11239424, 20480000, 23887872, 71663616, 78675968
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (262144 blocks): done
+Writing superblocks and filesystem accounting information: done     
+
+    ~  sudo mkfs.ext4 -L boot /dev/mapper/voidboot                      ✔ 
+mke2fs 1.46.5 (30-Dec-2021)
+Creating filesystem with 258048 4k blocks and 64512 inodes
+Filesystem UUID: a002d6c1-e43b-45a5-8914-75d1346730d9
+Superblock backups stored on blocks: 
+        32768, 98304, 163840, 229376
+
+Allocating group tables: done                            
+Writing inode tables: done                            
+Creating journal (4096 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+    ~  sudo mkfs.ext4 -L home /dev/mapper/voidhome                      ✔ 
+mke2fs 1.46.5 (30-Dec-2021)
+/dev/mapper/voidhome contains a ext4 file system
+        last mounted on Wed May 11 13:46:29 2022
+Proceed anyway? (y,N) n
+
+    ~  sudo mkswap -L swap /dev/mapper/voidswap                         ✔ 
+Setting up swapspace version 1, size = 96 GiB (103062433792 bytes)
+LABEL=swap, UUID=e349b37f-5363-46cb-a0fe-db02a39735e0
+
+    ~  sudo mkdir -p /void/{home,boot,root,}                            ✔ 
+    ~  sudo mount /dev/mapper/voidboot /void/boot                       ✔ 
+    ~  sudo mount /dev/mapper/voidhome /void/home                       ✔ 
+    ~  sudo mkdir -p /void/boot/efi                                     ✔ 
+    ~  sudo mount /dev/nvme0n1p2 /void/boot/efi                         ✔ 
+    ~  for dir in dev proc sys run; do sudo mkdir -p /void/$dir ; sudo mount --rbind /$dir /void/$dir ; sudo mount --make-rslave /void/$dir ; done
+    ~                                                                   ✔ 
+
+
 ```
 
 
